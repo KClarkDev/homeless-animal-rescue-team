@@ -1,18 +1,11 @@
 const router = require("express").Router();
-const { Dogs, User } = require("../models");
+const { User, Dog } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // Get all blog posts and JOIN with user data
-    const dogData = await Dogs.findAll();
-
-    // Serialize data so the template can read it
-    const dogs = dogData.map((post) => post.get({ plain: true }));
-
-    // Pass serialized data and session flag into the homepage template
+    // Pass session flag into the homepage template
     res.render("homepage", {
-      dogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -20,21 +13,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/blogPost/:id", async (req, res) => {
+router.get("/dogGallery", async (req, res) => {
   try {
-    const blogData = await BlogPost.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const dogData = await Dog.findAll();
 
-    const blogPost = blogData.get({ plain: true });
+    const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
 
-    res.render("blogPost", {
-      ...blogPost,
+    res.render("dogGallery", {
+      dogTemplate,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -43,17 +29,16 @@ router.get("/blogPost/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get("/adoptionForm", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: BlogPost }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render("dashboard", {
+    res.render("adoptionForm", {
       ...user,
       logged_in: true,
     });
@@ -65,7 +50,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/dashboard");
+    res.redirect("/homepage");
     return;
   }
 
