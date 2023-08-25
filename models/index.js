@@ -1,5 +1,7 @@
-const User = require('./User')
+const User = require("./User");
+const Dog = require("./Dog");
 
 module.exports = {
-  User , Dog 
-}
+  User,
+  Dog,
+};
