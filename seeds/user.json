@@ -34,5 +34,23 @@
       "email": "sarah@example.com",
       "password": "securePassword456",
       "address": "123 Cedar Road"
-    }
+    },
+    {
+        "username": "david_anderson",
+        "email": "david@example.com",
+        "password": "davidpass123",
+        "address": "234 Oak Street"
+      },
+      {
+        "username": "olivia_brown",
+        "email": "olivia@example.com",
+        "password": "brownpass456",
+        "address": "567 Elm Road"
+      },
+      {
+        "username": "william_clark",
+        "email": "william@example.com",
+        "password": "clark12345",
+        "address": "789 Pine Avenue"
+      }
 ]
