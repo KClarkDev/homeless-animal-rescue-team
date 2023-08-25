@@ -1,0 +1,12 @@
+[
+    {
+      "name": "",
+      "age": 0,
+      "gender": "",
+      "location": "",
+      "size": "",
+      "friendly_to_kids": false,
+      "friendly_to_animals": false,
+      "description": ""
+    }
+  ]
