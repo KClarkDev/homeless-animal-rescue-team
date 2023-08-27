@@ -1,7 +1,8 @@
 const User = require("./User");
-const Dog = require("./Dog");
+const Dogs = require("./Dog");
+// where are the associations????
 
 module.exports = {
   User,
-  Dog,
+  Dogs,
 };

@@ -51,3 +51,5 @@ Dogs.init(
     modelName: "Dogs",
   }
 );
+
+module.exports = Dogs;

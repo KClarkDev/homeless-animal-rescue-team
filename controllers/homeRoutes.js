@@ -2,6 +2,10 @@ const router = require("express").Router();
 const { Dogs, User } = require("../models");
 const withAuth = require("../utils/auth");
 
+// router.get('/', async (req, res) => {
+//   res.render('home');
+// });
+
 router.get("/", async (req, res) => {
   try {
     // Get all blog posts and JOIN with user data
@@ -11,8 +15,8 @@ router.get("/", async (req, res) => {
     const dogs = dogData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into the homepage template
-    res.render("homepage", {
-      dogs,
+    res.render("home", {
+      // dogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -62,6 +66,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -70,6 +75,12 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/application", (req, res) => {
+ 
+
+  res.render("application");
 });
 
 module.exports = router;
