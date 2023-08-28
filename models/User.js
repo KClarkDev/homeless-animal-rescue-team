@@ -34,6 +34,10 @@ User.init(
         len: [6],
       },
     },
+    address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
   },
   {
     hooks: {

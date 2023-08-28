@@ -1,0 +1,56 @@
+[
+    {
+      "username": "john_doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "address": "123 Main St"
+    },
+    {
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "password": "securepass456",
+      "address": "456 Elm Ave"
+    },
+    {
+      "username": "alex_wilson",
+      "email": "alex@example.com",
+      "password": "strongpasswd789",
+      "address": "789 Oak Rd"
+    },
+    {
+      "username": "emily_jones",
+      "email": "emily@example.com",
+      "password": "mypassword123",
+      "address": "567 Maple Lane"
+    },
+    {
+      "username": "michael_adams",
+      "email": "michael@example.com",
+      "password": "strongPass789",
+      "address": "789 Pine Street"
+    },
+    {
+      "username": "sarah_wilkins",
+      "email": "sarah@example.com",
+      "password": "securePassword456",
+      "address": "123 Cedar Road"
+    },
+    {
+        "username": "david_anderson",
+        "email": "david@example.com",
+        "password": "davidpass123",
+        "address": "234 Oak Street"
+      },
+      {
+        "username": "olivia_brown",
+        "email": "olivia@example.com",
+        "password": "brownpass456",
+        "address": "567 Elm Road"
+      },
+      {
+        "username": "william_clark",
+        "email": "william@example.com",
+        "password": "clark12345",
+        "address": "789 Pine Avenue"
+      }
+]

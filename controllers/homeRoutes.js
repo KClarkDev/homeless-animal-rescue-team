@@ -2,10 +2,21 @@ const router = require("express").Router();
 const { User, Dog } = require("../models");
 const withAuth = require("../utils/auth");
 
+// router.get('/', async (req, res) => {
+//   res.render('home');
+// });
+
 router.get("/", async (req, res) => {
   try {
-    // Pass session flag into the homepage template
-    res.render("homepage", {
+    // Get all blog posts and JOIN with user data
+    const dogData = await Dogs.findAll();
+
+    // Serialize data so the template can read it
+    const dogs = dogData.map((post) => post.get({ plain: true }));
+
+    // Pass serialized data and session flag into the homepage template
+    res.render("home", {
+      // dogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -55,6 +66,10 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/application", (req, res) => {
+  res.render("application");
 });
 
 module.exports = router;
