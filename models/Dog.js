@@ -26,7 +26,7 @@ Dogs.init(
       allowNull: false,
     },
     size: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     friendly: {

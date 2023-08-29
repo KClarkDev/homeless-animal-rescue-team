@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 const User = require('../models/User'); 
 const Dog = require('../models/Dog');
