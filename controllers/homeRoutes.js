@@ -1,16 +1,14 @@
 const router = require("express").Router();
-const { User, Dog } = require("../models");
+const { Dogs, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// Render the homepage
-router.get("/", async (req, res) => {
-  res.render("home");
-});
+// router.get('/', async (req, res) => {
+//   res.render('home');
+// });
 
-// Route for passing in dog data to be rendered in the homepage
 router.get("/", async (req, res) => {
   try {
-    // Get all dog data
+    // Get all blog posts and JOIN with user data
     const dogData = await Dogs.findAll();
 
     // Serialize data so the template can read it
@@ -26,14 +24,21 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/dogGallery", async (req, res) => {
+router.get("/blogPost/:id", async (req, res) => {
   try {
-    const dogData = await Dog.findAll();
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
 
-    const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
+    const blogPost = blogData.get({ plain: true });
 
-    res.render("dogGallery", {
-      dogTemplate,
+    res.render("blogPost", {
+      ...blogPost,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -41,18 +46,18 @@ router.get("/dogGallery", async (req, res) => {
   }
 });
 
-// Renders the adoption form application page
-// Use withAuth middleware to prevent access to route if user is not logged in
-router.get("/application", withAuth, async (req, res) => {
+// Use withAuth middleware to prevent access to route
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
+      include: [{ model: BlogPost }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render("application", {
+    res.render("dashboard", {
       ...user,
       logged_in: true,
     });
@@ -61,15 +66,21 @@ router.get("/application", withAuth, async (req, res) => {
   }
 });
 
-// Renders the login page. If a route uses authentication to only render a page if the user is logged in, the withAuth function will redirect to this route
+
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/home");
+    res.redirect("/dashboard");
     return;
   }
 
   res.render("login");
+});
+
+router.get("/application", (req, res) => {
+ 
+
+  res.render("application");
 });
 
 module.exports = router;
