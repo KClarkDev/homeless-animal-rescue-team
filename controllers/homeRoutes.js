@@ -2,13 +2,15 @@ const router = require("express").Router();
 const { User, Dog } = require("../models");
 const withAuth = require("../utils/auth");
 
-// router.get('/', async (req, res) => {
-//   res.render('home');
-// });
+// Render the homepage
+router.get("/", async (req, res) => {
+  res.render("home");
+});
 
+// Route for passing in dog data to be rendered in the homepage
 router.get("/", async (req, res) => {
   try {
-    // Get all blog posts and JOIN with user data
+    // Get all dog data
     const dogData = await Dogs.findAll();
 
     // Serialize data so the template can read it
@@ -39,8 +41,9 @@ router.get("/dogGallery", async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get("/adoptionForm", withAuth, async (req, res) => {
+// Renders the adoption form application page
+// Use withAuth middleware to prevent access to route if user is not logged in
+router.get("/application", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -49,7 +52,7 @@ router.get("/adoptionForm", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render("adoptionForm", {
+    res.render("application", {
       ...user,
       logged_in: true,
     });
@@ -58,18 +61,15 @@ router.get("/adoptionForm", withAuth, async (req, res) => {
   }
 });
 
+// Renders the login page. If a route uses authentication to only render a page if the user is logged in, the withAuth function will redirect to this route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/homepage");
+    res.redirect("/home");
     return;
   }
 
   res.render("login");
-});
-
-router.get("/application", (req, res) => {
-  res.render("application");
 });
 
 module.exports = router;
