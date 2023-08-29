@@ -10,3 +10,13 @@ router.get("/dogs", async (req, res) => {
       res.status(500).json({ message: "An error occurred while fetching dog data." });
     }
   });
+
+  // router.get("/dogs/name", async (req, res) => {
+
+  // router.get("/dogs/breed", async (req, res) => {
+
+  // router.get("/dogs/age", async (req, res) => {
+  
+  // router.get("/dogs/gender", async (req, res) => {
+  
+
