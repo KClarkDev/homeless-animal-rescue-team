@@ -24,22 +24,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/blogPost/:id", async (req, res) => {
+router.get("/available_dogs", async (req, res) => {
   try {
-    const blogData = await BlogPost.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
+    console.log("Template rendering is working!");
+    // const dogData = await Dog.findAll();
 
-    const blogPost = blogData.get({ plain: true });
+    // const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
 
-    res.render("blogPost", {
-      ...blogPost,
-      logged_in: req.session.logged_in,
+    res.render("available_dogs", {
+      // dogTemplate,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
