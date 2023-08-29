@@ -4,6 +4,7 @@ const Dog = require('../models/Dog');
 const userData = require('./user.json'); 
 const dogData = require('./dog.json');
 
+
 const seedDatabase = async () => {
   try {
     await sequelize.sync({ force: true });
