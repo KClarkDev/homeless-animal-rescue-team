@@ -26,15 +26,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/dogGallery", async (req, res) => {
+router.get("/available_dogs", async (req, res) => {
   try {
-    const dogData = await Dog.findAll();
+    console.log("Template rendering is working!");
+    // const dogData = await Dog.findAll();
 
-    const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
+    // const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
 
-    res.render("dogGallery", {
-      dogTemplate,
-      logged_in: req.session.logged_in,
+    res.render("available_dogs", {
+      // dogTemplate,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
