@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Dogs, User } = require("../models");
 const withAuth = require("../utils/auth");
+const fs = require("fs");
 
 // router.get('/', async (req, res) => {
 //   res.render('home');
@@ -24,17 +25,30 @@ router.get("/", async (req, res) => {
   }
 });
 
+function getSeedData() {
+  return new Promise((resolve, reject) => {
+      fs.readFile('seeds/dog.json', (err, data) => {
+          if (err) {
+              reject(err);
+              return;
+          }
+          const parsedData = JSON.parse(data);
+          resolve(parsedData);
+      });
+  });
+}
+
 router.get("/available_dogs", async (req, res) => {
   try {
     console.log("Template rendering is working!");
+    const seedData = await getSeedData();
+    console.log(seedData);
+    
     // const dogData = await Dog.findAll();
 
     // const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
 
-    res.render("available_dogs", {
-      // dogTemplate,
-      // logged_in: req.session.logged_in,
-    });
+    res.render("available_dogs", {seedData});
   } catch (err) {
     res.status(500).json(err);
   }
