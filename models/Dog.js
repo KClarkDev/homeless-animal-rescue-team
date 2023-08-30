@@ -29,8 +29,12 @@ Dogs.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    friendly: {
-      type: DataTypes.STRING,
+    friendly_to_kids: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    friendly_to_animals: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     adoption_status: {
