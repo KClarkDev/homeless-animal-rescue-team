@@ -30,7 +30,7 @@ router.get("/adopt", async (req, res) => {
     // Fetch user's previous application data
     const user = await User.findByPk(userId);
 
-    res.render("adoption-form", { user }); // Render the Handlebars template and pass user data
+    res.render("adoption-form", { layout: "application", user }); // Render the Handlebars template and pass user data
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "An error occurred while fetching user data." });
