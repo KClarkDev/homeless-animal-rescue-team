@@ -91,4 +91,12 @@ router.get("/application", (req, res) => {
   res.render("application");
 });
 
+router.get("/sponsors", (_req, res) => {
+  res.render("future_dev");
+});
+
+router.get("/volunteers", (_req, res) => {
+  res.render("future_dev");
+});
+
 module.exports = router;

@@ -3,15 +3,16 @@
     <div class="row">
     <div class="col-md-12">
 
-{{!--Need to remove drop-down feature--}}
+{{!--Searches for dog by name--}}
     <div class="input-group" id="boot-search-box">
     <input type="text"  placeholder="Enter name of dog, or leave blank" />
     <div class="input-group-btn">
-    <button type="button" class="btn-default" {{!--data-toggle="dropdown"--}} aria-expanded="false">
+    <button type="button" class="btn-default" aria-expanded="false">
     <span class="caret"></span></button>
 
     <form class="form-horizontal" role="form">
 
+{{!--Searches for dog by age--}}
     <div class="form-group">
         <label for="filter">Age:</label>
     <select class="form-control">
@@ -22,10 +23,13 @@
     </select>
 </div>
 
+{{!--Searches for dog by breed--}}
 <div class="form-group">
 <label for="contain">Breed:</label>
     <input class="form-control" type="text" />
 </div>
+
+{{!--Searches for dog by location--}}
 <div class="form-group">
     <label for="contain">Current Location:</label>
     <div class="checkbox">
@@ -40,6 +44,8 @@
     Foster Home
   </label>
 </div>
+
+  {{!--Searches for dog by size--}}
 <div class="form-group">
     <label for="contain">Size:</label>
     <select class="form-group">
@@ -49,6 +55,8 @@
         <option value="popular">Large</option>
     </select>
 </div>
+
+  {{!--Filters if dog is friendly with other animals || children--}}
 <div class="form-group">
   <label>
     <input type="checkbox" value="friendly-kids">
@@ -72,7 +80,7 @@
 
 </div>
 
-
+{{!--Pulls dog info from db to display in cards--}}
 {{#each seedData}}
 <div class="container2">
 <p class="card-text">{{name}}</p>
