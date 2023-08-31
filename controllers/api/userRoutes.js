@@ -17,6 +17,48 @@ router.post("/", async (req, res) => {
   }
 });
 
+//Route to Serve the adoption form.
+
+router.get("/adopt", async (req, res) => {
+  try {
+    const userId = req.session.user_id; // Get the logged-in user's ID from the session
+    if (!userId) {
+      res.redirect("/login"); // Redirect to login if not logged in
+      return;
+    }
+
+    // Fetch user's previous application data
+    const user = await User.findByPk(userId);
+
+    res.render("adoption-form", { layout: "application", user }); // Render the Handlebars template and pass user data
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred while fetching user data." });
+  }
+});
+
+// Route to handle adoption form submission
+router.post("/adopt", async (req, res) => {
+  try {
+    const userId = req.session.user_id; // Get the logged-in user's ID from the session
+    if (!userId) {
+      res.redirect("/login"); // Redirect to login if not logged in
+      return;
+    }
+
+    // Save form data to the database
+    const formData = req.body;
+    formData.userId = userId; // Associate the form data with the user
+
+    const savedAdoption = await User.create(formData);
+
+    res.redirect("/success"); // Redirect to success page or wherever after successful submission
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred while saving adoption data." });
+  }
+});
+
 // validates if email and password exist in the database for logging in, and returns an error 400 if not valid.
 router.post("/login", async (req, res) => {
   try {
