@@ -1,3 +1,5 @@
+const sendEmail = require("../utils/courier"); // Update the path accordingly
+
 // Login functionality
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -42,6 +44,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
       document.location.replace("/dashboard");
+
+      // Trigger the email response
+      sendEmail(name, email);
     } else {
       alert(
         "The username, email, or password is invalid, please try again. Remember, the password must be at least 8 characters, and username and email must be unique."
@@ -57,3 +62,6 @@ document
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
+
+// Class name is a placeholder - confirm with team
+document.querySelector(".sign-up-btn").addEventListener("submit", emailTrigger);
