@@ -1,95 +1,47 @@
-{{!--Filtered Search feature to narrow down available dogs--}}
-<div class="container">
-    <div class="row">
-    <div class="col-md-12">
-
-{{!--Searches for dog by name--}}
-    <div class="input-group" id="boot-search-box">
-    <input type="text"  placeholder="Enter name of dog, or leave blank" />
-    <div class="input-group-btn">
-    <button type="button" class="btn-default" aria-expanded="false">
-    <span class="caret"></span></button>
-
-    <form class="form-horizontal" role="form">
-
-{{!--Searches for dog by age--}}
-    <div class="form-group">
-        <label for="filter">Age:</label>
-    <select class="form-control">
-        <option value="catalogue">All ages</option>
-        <option value="modal">Puppy</option>
-        <option value="price">Adult</option>
-        <option value="popular">Senior</option>
-    </select>
-</div>
-
-{{!--Searches for dog by breed--}}
-<div class="form-group">
-<label for="contain">Breed:</label>
-    <input class="form-control" type="text" />
-</div>
-
-{{!--Searches for dog by location--}}
-<div class="form-group">
-    <label for="contain">Current Location:</label>
-    <div class="checkbox">
-  <label>
-    <input type="checkbox" value="shelter">
-    Shelter
-  </label>
-</div>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" value="foster-home">
-    Foster Home
-  </label>
-</div>
-
-  {{!--Searches for dog by size--}}
-<div class="form-group">
-    <label for="contain">Size:</label>
-    <select class="form-group">
-        <option value="catalogue">Any size</option>
-        <option value="modal">Small</option>
-        <option value="price">Medium</option>
-        <option value="popular">Large</option>
-    </select>
-</div>
-
-  {{!--Filters if dog is friendly with other animals || children--}}
-<div class="form-group">
-  <label>
-    <input type="checkbox" value="friendly-kids">
-    Good with children.
-  </label>
-</div>
-<div class="form-group">
-  <label>
-    <input type="checkbox" value="friendly-animals">
-    Good with other animals.
-  </label>
-</div>
-<button type="button" class="btn-search">Find Your New Best Friend</button>
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 {{!--Pulls dog info from db to display in cards--}}
 {{#each seedData}}
-<div class="container2">
-<p class="card-text">{{name}}</p>
-    <div class="card" id="card2" style="width: 18rem;">
-    <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
-        <div class="card-body">
-         <p class="card-text">{{description}}</p>
-        </div>
+<div class="row row col-3">
+<div class="card text-bg-light mb-3" style="max-width: 18rem;">
+  <table class="table-light">
+        <p class="card-text">{{name}}</p>
+        <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">{{description}}</p>
+            <button type="button" data-toggle="modal" data-target="#myModal">More Info</button>
+          </div>
+          </table>
+      </div>
+  </div>
+  </div>
+        {{/each}}
+</div>
+
+
+
+
+  
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
-{{/each}}
+
+  </div>
 </div>
-</div>
+
+{{!-- <script src="/js/modal.js"></script> --}}

@@ -1,80 +1,74 @@
 body {
-    font-family: Verdana, Times, 'Times New Roman', serif;
-    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size:x-large;
+    color: rgb(9, 43, 81);
     margin: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: black;
-}
-
-#boot-search-box {
+    background-image: linear-gradient(to bottom right,#d9b9ca, #679cc7, #9ec1de,#d9b9ca);
     
 }
 
-.container2 .card-text {
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;   
-    text-align: center; 
-}
-
 .page-links {
-    background-color: white;
-    border: 5px solid gray;
-    color: white;
-    padding: 20 px 25 px;
-    text-align: center;
-    text-decoration: none;
+    background-color:rgb(210, 223, 238);
+    border: 5px solid rgb(30, 97, 164);
+    margin: 3px;
+    padding: 3px;
+    color: gray;
+    justify-content: center;
 }
 
-.input-group {
-    margin: 20px;
-    padding: 10px;
-    border: 5px solid gray;
-    text-align: left;
+.card {
+    justify-content: center;
+    padding: 12px;
 }
 
-.form-group {
-    margin: 10px;
-    padding: 7px;
-    text-align: left;
-    display: block;
+.container {
+    width: 500px;
+    height: 500px;
+    border-style: solid;
+    border-color: grey;
+    display: blockS;
+    justify-content: center;
 }
+/* 
 
-.container_main .card {
-    width: 100%;
-    height: 100%;
-    height: fit-content;
-    padding: 10px;
-    border: 5px solid gray;
-    margin: 0;
+.g-col-6 {
+    width: 288px;
+    display: wrap;
     flex-wrap: wrap;
+    margin: 10px;
+    padding: 10px;  
+    justify-content: space-evenly;
     text-align: center;
-    flex-direction: column;
 }
 
-.btn-search {
-    .button {
-        margin:8px;
-        padding: 15px;
-        background-color: #ffffff;
-        border: none;
-        width: 50%;
-        color: rgb(11, 9, 9);
-        padding: 15px 32px;
-        text-align: center;
+.container-main {
+    width: 200px;
+}
+
+/* .card2 {
+    justify-content: center;
+
+} */
+
+/* @media screen and (max-width: 1200px) and (min-width: 200px) {
+    .page-links {
+        font-size: 75%;
+        float:inline-start;
+        display: wrap;
+        flex-wrap: wrap;
+        text-align: justify;
+        padding: 0;
         text-decoration: none;
-        display: inline-block;
-        font-size: 35px;
-        transition-duration: 0.4s;
-      }
-}
+        }
+} */
 
-.btn-search:hover {
-    background-color: #d73e3e;
-    color: white;
-  }
+/* .main-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid-text-center .g-col-6 {
+    margin: 10px;
+    padding: 10px;
+    justify-content: center;
+    gap: 20px;
+}
