@@ -1,23 +1,21 @@
 const router = require("express").Router();
 const { Dogs, User } = require("../models");
 const withAuth = require("../utils/auth");
-const fs = require("fs");
 
-// router.get('/', async (req, res) => {
-//   res.render('home');
-// });
-
+// Render the homepage
 router.get("/", async (req, res) => {
+  res.render("home", { logged_in: req.session.logged_in });
+});
+
+// Pass the dog db data when rendering the Dogs for Adoption page
+router.get("/available_dogs", async (req, res) => {
   try {
-    // Get all blog posts and JOIN with user data
     const dogData = await Dogs.findAll();
 
-    // Serialize data so the template can read it
-    const dogs = dogData.map((post) => post.get({ plain: true }));
+    const dogs = dogData.map((dog) => dog.get({ plain: true }));
 
-    // Pass serialized data and session flag into the homepage template
-    res.render("home", {
-      // dogs,
+    res.render("available_dogs", {
+      dogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -25,47 +23,17 @@ router.get("/", async (req, res) => {
   }
 });
 
-function getSeedData() {
-  return new Promise((resolve, reject) => {
-      fs.readFile('seeds/dog.json', (err, data) => {
-          if (err) {
-              reject(err);
-              return;
-          }
-          const parsedData = JSON.parse(data);
-          resolve(parsedData);
-      });
-  });
-}
-
-router.get("/available_dogs", async (req, res) => {
-  try {
-    console.log("Template rendering is working!");
-    const seedData = await getSeedData();
-    console.log(seedData);
-    
-    // const dogData = await Dog.findAll();
-
-    // const dogTemplate = dogData.map((dog) => dog.get({ plain: true }));
-
-    res.render("available_dogs", {seedData});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Use withAuth middleware to prevent access to route
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get("/application", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: BlogPost }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render("dashboard", {
+    res.render("application", {
       ...user,
       logged_in: true,
     });
@@ -74,29 +42,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-
+// Render the login page if the user is NOT logged in. Otherwise, redirect to the homepage
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the user is already logged in, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect("/dashboard");
+    res.redirect("/home");
     return;
   }
-
-  res.render("login");
+  res.render("login", { logged_in: req.session.logged_in });
 });
 
-router.get("/application", (req, res) => {
- 
-
-  res.render("application");
+// Render the "Under Construction" page when clicking on Sponsors in the navbar
+router.get("/sponsors", (req, res) => {
+  res.render("future_dev", { logged_in: req.session.logged_in });
 });
 
-router.get("/sponsors", (_req, res) => {
-  res.render("future_dev");
-});
-
-router.get("/volunteers", (_req, res) => {
-  res.render("future_dev");
+// Render the "Under Construction" page when clicking on Volunteers in the navbar
+router.get("/volunteers", (req, res) => {
+  res.render("future_dev", { logged_in: req.session.logged_in });
 });
 
 module.exports = router;
