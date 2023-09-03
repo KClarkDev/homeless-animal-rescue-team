@@ -6,22 +6,14 @@
         <p class="card-text">{{name}}</p>
         <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
           <div class="card-body">
-            <p class="card-text">{{description}}</p>
-            <button type="button" data-toggle="modal" data-target="#myModal">More Info</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">More Info</button>
           </div>
           </table>
       </div>
   </div>
   </div>
-        {{/each}}
+ 
 </div>
-
-
-
-
-  
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -30,18 +22,17 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{name}}</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>{{description}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
 
   </div>
 </div>
-
-{{!-- <script src="/js/modal.js"></script> --}}
+       {{/each}}
