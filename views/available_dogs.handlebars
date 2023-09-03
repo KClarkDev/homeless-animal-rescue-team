@@ -1,24 +1,26 @@
-{{!--Pulls dog info from db to display in cards--}}
-{{#each seedData}}
-<div class="row row col-3">
-<div class="card text-bg-light mb-3" style="max-width: 18rem;">
-  <table class="table-light">
-        <p class="card-text">{{name}}</p>
-        <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
-          <div class="card-body">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">More Info</button>
-          </div>
+<div class="container">
+  {{!-- Pulls dog info from db to display in cards --}}
+  <div class="row">
+    {{#each seedData}}
+      <div class="col-md-4">
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+          <table class="table-light">
+            <p class="card-text">{{name}}</p>
+            <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
+            <div class="card-body">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">More Info</button>
+            </div>
           </table>
+        </div>
       </div>
+    {{/each}}
   </div>
-  </div>
- 
 </div>
 
+{{#each seedData}}
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -32,7 +34,6 @@
         <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-       {{/each}}
+{{/each}}
