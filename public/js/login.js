@@ -51,8 +51,8 @@ const signupFormHandler = async (event) => {
 };
 
 const sendEmail = async () => {
-  console.log("Working on sending email in login.js");
   try {
+    // Hard-coded for testing and demo purposes
     const emailData = {
       recipient: "kec0892@gmail.com",
       name: "Katie Clark",
@@ -69,10 +69,8 @@ const sendEmail = async () => {
     if (response.ok) {
       const result = await response.json();
       console.log(result.message);
-      console.log("Result was ok");
     } else {
       console.error("Failed to send email:", response.statusText);
-      console.log("Result was not ok");
     }
   } catch (error) {
     console.error("Error sending email:", error);
@@ -88,6 +86,3 @@ document.querySelector(".login-form").addEventListener("submit", sendEmail);
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
-
-// // Class name is a placeholder - confirm with team
-// document.querySelector(".sign-up-btn").addEventListener("submit", emailTrigger);
