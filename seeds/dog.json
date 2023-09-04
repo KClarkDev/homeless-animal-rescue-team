@@ -10,7 +10,8 @@
       "friendly_to_kids": true,
       "friendly_to_animals": true,
       "adoption_status": "Adopted",  
-      "description": "Misty is a pure bred German Shepard. She likes squeaky toys and can whistle for attention."
+      "description": "Misty is a pure bred German Shepard. She likes squeaky toys and can whistle for attention.",
+      "image": "/images/sarah_adoption.jpg"
     },
     {
         "name": "Buddy",
@@ -22,7 +23,8 @@
         "friendly_to_kids": true,
         "friendly_to_animals": true,
         "adoption_status":"Available",
-        "description": "Buddy is a friendly and playful dog who loves spending time with kids and gets along well with other animals. He's full of energy and would be a great addition to an active family."
+        "description": "Buddy is a friendly and playful dog who loves spending time with kids and gets along well with other animals. He's full of energy and would be a great addition to an active family.",
+        "image": "/images/otto_adoption.jpg"
       },
       {
         "name": "Daisy",
@@ -34,7 +36,8 @@
         "friendly_to_kids": true,
         "friendly_to_animals": false,
         "adoption_status":"Available",
-        "description": "Daisy is a sweet and affectionate dog who adores children. She's a bit shy around other animals, so she would thrive in a home where she's the only pet and can receive all the attention she deserves."
+        "description": "Daisy is a sweet and affectionate dog who adores children. She's a bit shy around other animals, so she would thrive in a home where she's the only pet and can receive all the attention she deserves.",
+        "image": "/images/maverick_adoption.jpg"
       },
       {
         "name": "Rocky",
@@ -46,7 +49,8 @@
         "friendly_to_kids": false,
         "friendly_to_animals": true,
         "adoption_status":"Adopted",
-        "description": "Rocky is a loyal and protective dog who bonds strongly with his human companions. He gets along well with other animals and would be a great fit for a household without young children."
+        "description": "Rocky is a loyal and protective dog who bonds strongly with his human companions. He gets along well with other animals and would be a great fit for a household without young children.",
+        "image": "/images/ace_adoption.jpg"
       },
       {
         "name": "Max",
@@ -58,7 +62,8 @@
         "friendly_to_kids": true,
         "friendly_to_animals": true,
         "adoption_status":"Available",
-        "description": "Max is  cheerful and energetic dog who loves to play fetch and go for long walks. He's great with kids and enjoys the company of other dogs. Max would thrive in an active household."
+        "description": "Max is  cheerful and energetic dog who loves to play fetch and go for long walks. He's great with kids and enjoys the company of other dogs. Max would thrive in an active household.",
+        "image": "/images/ariel_adoption.jpg"
       },
       {
         "name": "Lola",
@@ -70,7 +75,8 @@
         "friendly_to_kids": true,
         "friendly_to_animals": true,
         "adoption_status":"Available",
-        "description": "Lola is a gentle and affectionate dog who adores cuddles and belly rubs. She's known for her friendly nature and gets along well with both kids and other animals."
+        "description": "Lola is a gentle and affectionate dog who adores cuddles and belly rubs. She's known for her friendly nature and gets along well with both kids and other animals.",
+        "image": "/images/whiz_adoption.jpg"
       },
       {
         "name": "Charlie",
@@ -82,7 +88,8 @@
         "friendly_to_kids": true,
         "friendly_to_animals": false,
         "adoption_status":"Available",
-        "description": "Charlie is a wise and calm dog who enjoys lounging around and observing his surroundings. He's patient with kids but prefers a home where he can be the only pet and receive all the attention."
+        "description": "Charlie is a wise and calm dog who enjoys lounging around and observing his surroundings. He's patient with kids but prefers a home where he can be the only pet and receive all the attention.",
+        "image": "/images/fluffy_adoption.jpg"
       }
   ]
   
