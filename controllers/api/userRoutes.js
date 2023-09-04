@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const sendEmail = require("../../utils/courier");
 
 // creates a new user, adds their record to the users table in the database, and starts a user session upon successful creation
 router.post("/", async (req, res) => {
@@ -46,6 +47,17 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post("/send-email", async (req, res) => {
+  try {
+    const emailData = req.body;
+    const result = await sendEmail(emailData);
+    res.json({ success: true, message: "Email sent successfully", result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Email sending failed" });
   }
 });
 

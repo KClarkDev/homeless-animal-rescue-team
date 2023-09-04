@@ -6,21 +6,20 @@ const courier = CourierClient({
 });
 
 // email address is hard-coded for testing purposes
-async function sendEmail(user_name /*user_email*/) {
+async function sendEmail(emailData) {
   try {
-    console.log(`The users name is: ${user_name}`);
+    // console.log(`The users name is: ${user_name}`);
     const { requestId } = await courier.send({
       message: {
         to: {
-          email: "kec0892@gmail.com",
-          //email: user_email
+          email: emailData.recipient,
         },
         content: {
           title: "A message from Homeward Bound Animal Shelter",
           body: "Hello, {{name}}! From the bottom of our hearts, and theirs, we thank you for considering adoption!",
         },
         data: {
-          name: user_name,
+          name: emailData.name,
         },
         routing: {
           method: "single",
@@ -36,6 +35,6 @@ async function sendEmail(user_name /*user_email*/) {
   }
 }
 
-sendEmail();
+// sendEmail();
 
 module.exports = sendEmail;

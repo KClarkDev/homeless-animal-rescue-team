@@ -1,5 +1,3 @@
-const sendEmail = require("../utils/courier"); // Update the path accordingly
-
 // Login functionality
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -17,8 +15,8 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
-      document.location.replace("/application");
+      // If successful, redirect the browser to the home page
+      document.location.replace("/");
     } else {
       alert("Incorrect email or password, please try again.");
     }
@@ -42,11 +40,8 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
-      document.location.replace("/dashboard");
-
-      // Trigger the email response
-      sendEmail(name, email);
+      // If successful, redirect the browser to the home page
+      document.location.replace("/");
     } else {
       alert(
         "The username, email, or password is invalid, please try again. Remember, the password must be at least 8 characters, and username and email must be unique."
@@ -55,13 +50,44 @@ const signupFormHandler = async (event) => {
   }
 };
 
+const sendEmail = async () => {
+  console.log("Working on sending email in login.js");
+  try {
+    const emailData = {
+      recipient: "kec0892@gmail.com",
+      name: "Katie Clark",
+    };
+
+    const response = await fetch("/api/users/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log(result.message);
+      console.log("Result was ok");
+    } else {
+      console.error("Failed to send email:", response.statusText);
+      console.log("Result was not ok");
+    }
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
+};
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
+
+document.querySelector(".login-form").addEventListener("submit", sendEmail);
 
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
 
-// Class name is a placeholder - confirm with team
-document.querySelector(".sign-up-btn").addEventListener("submit", emailTrigger);
+// // Class name is a placeholder - confirm with team
+// document.querySelector(".sign-up-btn").addEventListener("submit", emailTrigger);
