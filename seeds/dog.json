@@ -1,3 +1,4 @@
+
 [
     {
       "name": "Misty",
@@ -9,7 +10,7 @@
       "friendly_to_kids": true,
       "friendly_to_animals": true,
       "adoption_status": "Adopted",  
-      "description": "Misty is a pure bred German Shepard. She likes squeky toys and can whistle for attention."
+      "description": "Misty is a pure bred German Shepard. She likes squeaky toys and can whistle for attention."
     },
     {
         "name": "Buddy",
