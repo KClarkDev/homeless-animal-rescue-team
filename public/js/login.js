@@ -78,7 +78,7 @@ const sendEmail = async () => {
 };
 
 document
-  .querySelector(".form-new-form1")
+  .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
 
 document.querySelector(".form-new-form2").addEventListener("submit", sendEmail);
