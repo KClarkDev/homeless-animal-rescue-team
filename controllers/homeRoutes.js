@@ -33,6 +33,8 @@ router.get("/application", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
+    console.log(user);
+    console.log(user.email);
     res.render("application", {
       ...user,
       logged_in: true,

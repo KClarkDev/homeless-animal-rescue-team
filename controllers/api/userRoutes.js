@@ -34,29 +34,54 @@ router.get("/adopt", async (req, res) => {
     res.render("adoption-form", { layout: "application", user }); // Render the Handlebars template and pass user data
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "An error occurred while fetching user data." });
+    res
+      .status(500)
+      .json({ message: "An error occurred while fetching user data." });
   }
 });
 
-// Route to handle adoption form submission
-router.post("/adopt", async (req, res) => {
+// Route to handle adoption form submission - this will update the data in the users record in the database
+router.put("/adopt-update", async (req, res) => {
   try {
+    console.log("Within PUT request");
     const userId = req.session.user_id; // Get the logged-in user's ID from the session
     if (!userId) {
       res.redirect("/login"); // Redirect to login if not logged in
       return;
     }
 
-    // Save form data to the database
-    const formData = req.body;
-    formData.userId = userId; // Associate the form data with the user
+    // Extract form data from the request body
+    const {
+      first_name,
+      last_name,
+      address,
+      email,
+      phone,
+      previous_adopter,
+      pets_owned,
+    } = req.body;
 
-    const savedAdoption = await User.create(formData);
+    // Construct an object with the fields you want to update
+    const updatedUserData = {
+      first_name,
+      last_name,
+      address,
+      email,
+      phone,
+      previous_adopter,
+      pets_owned,
+    };
 
-    res.redirect("/success"); // Redirect to success page or wherever after successful submission
+    // Use a PUT query to update the user's record in the database
+    await User.update(updatedUserData, {
+      where: { id: userId }, // Specify the user to update based on their ID
+    });
+    console.log("User data updated!");
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "An error occurred while saving adoption data." });
+    res
+      .status(500)
+      .json({ message: "An error occurred while saving adoption data." });
   }
 });
 

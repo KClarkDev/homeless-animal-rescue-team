@@ -15,11 +15,16 @@
     </div>
     <div>
       <label for="address">Address:</label>
-      <input type="text" id="address" />
+      {{!-- address is in quotes to allow for spaces in address string --}}
+      <input type="text" id="address" value="{{address}}"/>
     </div>
     <div>
       <label for="email">Email:</label>
-      <input type="text" id="email" />
+      <input type="text" id="email" value={{email}} />
+    </div>
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" value={{phone}}/>
     </div>
     <div>
       <input

@@ -37,7 +37,15 @@ User.init(
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    pets_owned: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

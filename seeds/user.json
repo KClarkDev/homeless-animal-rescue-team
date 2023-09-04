@@ -3,54 +3,72 @@
       "username": "john_doe",
       "email": "john@example.com",
       "password": "password123",
-      "address": "123 Main St"
+      "address": "123 Main St",
+      "phone": null,
+      "petHistory": null
     },
     {
       "username": "jane_smith",
       "email": "jane@example.com",
       "password": "securepass456",
-      "address": "456 Elm Ave"
+      "address": "456 Elm Ave",
+      "phone": null,
+      "petHistory": null
     },
     {
       "username": "alex_wilson",
       "email": "alex@example.com",
       "password": "strongpasswd789",
-      "address": "789 Oak Rd"
+      "address": "789 Oak Rd",
+      "phone": null,
+      "petHistory": null
     },
     {
       "username": "emily_jones",
       "email": "emily@example.com",
       "password": "mypassword123",
-      "address": "567 Maple Lane"
+      "address": "567 Maple Lane",
+      "phone": null,
+      "petHistory": null
     },
     {
       "username": "michael_adams",
       "email": "michael@example.com",
       "password": "strongPass789",
-      "address": "789 Pine Street"
+      "address": "789 Pine Street",
+      "phone": null,
+      "petHistory": null
     },
     {
       "username": "sarah_wilkins",
       "email": "sarah@example.com",
       "password": "securePassword456",
-      "address": "123 Cedar Road"
+      "address": "123 Cedar Road",
+      "phone": null,
+      "petHistory": null
     },
     {
         "username": "david_anderson",
         "email": "david@example.com",
         "password": "davidpass123",
-        "address": "234 Oak Street"
+        "address": "234 Oak Street",
+        "phone": null,
+        "petHistory": null
       },
       {
         "username": "olivia_brown",
         "email": "olivia@example.com",
         "password": "brownpass456",
-        "address": "567 Elm Road"
+        "address": "567 Elm Road",
+        "phone": null,
+        "petHistory": null
       },
       {
         "username": "william_clark",
         "email": "william@example.com",
         "password": "clark12345",
-        "address": "789 Pine Avenue"
+        "address": "789 Pine Avenue",
+        "phone": null,
+        "petHistory": null
       }
 ]
