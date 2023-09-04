@@ -1,7 +1,7 @@
 body {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-size:x-large;
-    color: rgb(9, 43, 81);
+    color:white;
     margin: 0;
     background-image: linear-gradient(to bottom right,#d9b9ca, #679cc7, #9ec1de,#d9b9ca);
     
@@ -13,7 +13,7 @@ body {
     margin: 3px;
     padding: 3px;
     color: gray;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .card {
@@ -21,3 +21,39 @@ body {
     padding: 12px;
 }
 
+.container {
+    background-color: rgb(30, 97, 164);
+    border: 5px solid white;
+    justify-content: center;
+}
+
+.forms {
+    margin: auto;
+    margin-top: 10%;
+    width: 60%;
+    padding: 12px;
+    background-color: rgb(30, 97, 164);
+    border: 5px solid white;
+    display:grid;
+    justify-content: center;
+}
+
+.welcome {
+    margin:25px;
+    text-align: center;
+}
+
+.col-md-2 {
+    margin: auto;
+    padding: 8px;
+    display: grid;
+    justify-content: center;
+}
+
+.homescreen {
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    display: grid;
+    justify-content: center;
+}
