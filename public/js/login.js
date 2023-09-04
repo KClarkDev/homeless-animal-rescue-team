@@ -78,10 +78,10 @@ const sendEmail = async () => {
 };
 
 document
-  .querySelector(".login-form")
+  .querySelector(".form-new-form1")
   .addEventListener("submit", loginFormHandler);
 
-document.querySelector(".login-form").addEventListener("submit", sendEmail);
+document.querySelector(".form-new-form2").addEventListener("submit", sendEmail);
 
 document
   .querySelector(".signup-form")
