@@ -24,15 +24,13 @@ To get started with the Animal Adoption Shelter website, follow these simple ste
 
 2. **Browse Pets**: Browse through the available pets by using the search filters or simply scrolling through the list.
 
-3. **Pet Details**: Click on a pet's profile to learn more about them. Take your time to read through the information and view their photos.
+3. **Pet Details**: Click on a pet's profile to learn more about them. Take your time to read through the information and view their photos. See whether a pet is available for adoption, child friendly, animal friendly, at our shelter, or at a foster home. 
 
 4. **Create an Account**: To take full advantage of the website's features, consider creating a user account. Click on the "Sign Up" button and follow the prompts to set up your account.
 
 5. **Log In**: If you already have an account, click on the "Log In" button and enter your credentials.
 
-6. **Save Favorites**: Once logged in, you can mark pets as favorites by clicking the heart icon on their profile. This will add them to your list of favorites for easy access.
-
-7. **Adoption Process**: When you're ready to adopt a pet, navigate to the pet's profile and click on the "Adopt Me" button. Fill out the adoption form with your details and submit it.
+6. **Adoption Process**: When you're ready to adopt a pet, navigate to the pet's profile and click on the "Adopt Me" button. Fill out the adoption form with your details and submit it.
 
 ## Future Development
 
@@ -49,6 +47,12 @@ Volunteer enthusiasts will have the opportunity to join our team through the ded
 
 #### Sponsor Page
 We'll introduce a dedicated "Sponsors Page" to honor the generous contributors who keep the Animal Adoption Shelter running. Get to know our sponsors and discover how you can make a positive impact.
+
+## Links
+
+1. Github Repository: https://github.com/KClarkDev/homeless-animal-rescue-team
+2. Live Link: 
+3. Heroku: https://rocky-fortress-05253-ca50dfe67020.herokuapp.com/
 
 ## Contact Us
 
