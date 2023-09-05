@@ -34,7 +34,9 @@ router.get("/adopt", async (req, res) => {
     res.render("adoption-form", { layout: "application", user }); // Render the Handlebars template and pass user data
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "An error occurred while fetching user data." });
+    res
+      .status(500)
+      .json({ message: "An error occurred while fetching user data." });
   }
 });
 
@@ -56,7 +58,9 @@ router.post("/adopt", async (req, res) => {
     res.redirect("/success"); // Redirect to success page or wherever after successful submission
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "An error occurred while saving adoption data." });
+    res
+      .status(500)
+      .json({ message: "An error occurred while saving adoption data." });
   }
 });
 
