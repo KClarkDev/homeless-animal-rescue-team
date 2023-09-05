@@ -82,7 +82,7 @@ document
   .querySelector(".form-new-form1")
   .addEventListener("submit", loginFormHandler);
 
-// document.querySelector(".form-new-form2").addEventListener("submit", sendEmail);
+document.querySelector(".form-new-form2").addEventListener("submit", sendEmail);
 
 document
   .querySelector(".form-new-form2")
