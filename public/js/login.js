@@ -27,15 +27,10 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  console.log("In the form handler for signup");
   // Collect values from the sign-up form
   const username = document.querySelector("#user-signup").value.trim();
   const email = document.querySelector("#signup-email").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-
-  console.log(username);
-  console.log(email);
-  console.log(password);
 
   if (username && email && password) {
     const response = await fetch("/api/users", {
