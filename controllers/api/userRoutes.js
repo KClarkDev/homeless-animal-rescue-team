@@ -31,7 +31,7 @@ router.get("/adopt", async (req, res) => {
     // Fetch user's previous application data
     const user = await User.findByPk(userId);
 
-    res.render("adoption-form", { layout: "application", user }); // Render the Handlebars template and pass user data
+    res.json(user);
   } catch (error) {
     console.error(error);
     res
@@ -75,15 +75,8 @@ router.put("/adopt-update", async (req, res) => {
     }
 
     // Extract form data from the request body
-    const {
-      first_name,
-      last_name,
-      address,
-      email,
-      phone,
-      previous_adopter,
-      pets_owned,
-    } = req.body;
+    const { first_name, last_name, address, email, phone, pets_owned } =
+      req.body;
 
     // Construct an object with the fields you want to update
     const updatedUserData = {
@@ -100,6 +93,9 @@ router.put("/adopt-update", async (req, res) => {
       where: { id: userId }, // Specify the user to update based on their ID
     });
     console.log("User data updated!");
+
+    // Send a response with a 200 status code and an empty body
+    res.status(200).json({ message: "User data updated successfully." });
   } catch (error) {
     console.error(error);
     res
