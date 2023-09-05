@@ -64,6 +64,50 @@ router.post("/adopt", async (req, res) => {
   }
 });
 
+// Route to handle adoption form submission - this will update the data in the users record in the database
+router.put("/adopt-update", async (req, res) => {
+  try {
+    console.log("Within PUT request");
+    const userId = req.session.user_id; // Get the logged-in user's ID from the session
+    if (!userId) {
+      res.redirect("/login"); // Redirect to login if not logged in
+      return;
+    }
+
+    // Extract form data from the request body
+    const {
+      first_name,
+      last_name,
+      address,
+      email,
+      phone,
+      previous_adopter,
+      pets_owned,
+    } = req.body;
+
+    // Construct an object with the fields you want to update
+    const updatedUserData = {
+      first_name,
+      last_name,
+      address,
+      email,
+      phone,
+      pets_owned,
+    };
+
+    // Use a PUT query to update the user's record in the database
+    await User.update(updatedUserData, {
+      where: { id: userId }, // Specify the user to update based on their ID
+    });
+    console.log("User data updated!");
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "An error occurred while saving adoption data." });
+  }
+});
+
 // validates if email and password exist in the database for logging in, and returns an error 400 if not valid.
 router.post("/login", async (req, res) => {
   try {

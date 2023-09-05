@@ -16,6 +16,14 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -36,6 +44,14 @@ User.init(
       },
     },
     address: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    pets_owned: {
       type: DataTypes.STRING,
       allowNull: true,
     },
