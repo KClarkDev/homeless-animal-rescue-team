@@ -51,8 +51,7 @@ We'll introduce a dedicated "Sponsors Page" to honor the generous contributors w
 ## Links
 
 1. Github Repository: https://github.com/KClarkDev/homeless-animal-rescue-team
-2. Live Link: 
-3. Heroku: https://rocky-fortress-05253-ca50dfe67020.herokuapp.com/
+2. Heroku: https://rocky-fortress-05253-ca50dfe67020.herokuapp.com/
 
 ## Contact Us
 
