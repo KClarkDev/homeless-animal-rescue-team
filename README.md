@@ -1,4 +1,8 @@
-# homeless-animal-rescue-team
+# SHELTER
+###Supportive Haven for Every Loving Tail-Wagger & Every Rescued pet
+
+![Uploading image.png…]()
+
 
 Welcome to the **Animal Adoption Shelter** website! Our platform is dedicated to helping you find your perfect furry companion and making the adoption process as seamless as possible. Whether you're looking to rescue a dog, cat, or any other animal, we're here to assist you every step of the way.
 
