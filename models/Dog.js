@@ -46,6 +46,11 @@ Dogs.init(
       allowNull: false,
       length: [255],
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      length: [255],
+    },
   },
   {
     sequelize,

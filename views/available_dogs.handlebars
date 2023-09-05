@@ -6,7 +6,7 @@
         <div class="card text-bg-light mb-3" style="max-width: 18rem;">
           <table class="table-light">
             <p class="card-text">{{name}}</p>
-            <img class="card-img-top" src={{image}} alt="Card image cap">
+            <img class="card-img-top" src="{{image}}" alt="Card image cap">
             <div class="card-body">
               <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">More Info</button>
             </div>
@@ -25,10 +25,10 @@
    <div class="modal-content">
   <div class="modal-header">
         <button type="button" class="btn-modal" data-bs-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{name}}</h4>
+        <h4 class="modal-title">{{dogs.name}}</h4>
       </div>
       <div class="modal-body">
-        <p>{{description}}</p>
+        <p>{{dogs.description}}</p>
       </div>
       <div class="modal-footer">
         <button class="btn-modal" onclick='window.location = "./application"'>Apply to Adopt</button>
