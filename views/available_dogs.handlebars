@@ -1,15 +1,40 @@
-
-
-{{!--Pulls dog info from db to display in cards--}}
-{{#each dogs}}
-<div class="container2">
-<p class="card-text">{{name}}</p>
-    <div class="card" id="card2" style="width: 18rem;">
-    <img class="card-img-top" src="/images/BerneseMountDog_Project2.jpg" alt="Card image cap">
-        <div class="card-body">
-         <p class="card-text">{{description}}</p>
+<div class="container">
+  {{!-- Pulls dog info from db to display in cards --}}
+  <div class="row">
+    {{#each dogs}}
+      <div class="col-md-4">
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+          <table class="table-light">
+            <p class="card-text">{{name}}</p>
+            <img class="card-img-top" src={{image}} alt="Card image cap">
+            <div class="card-body">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">More Info</button>
+            </div>
+          </table>
         </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{#each dogs}}
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+   <div class="modal-content">
+  <div class="modal-header">
+        <button type="button" class="btn-modal" data-bs-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{name}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{description}}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal" onclick='window.location = "./application"'>Apply to Adopt</button>
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
+</div>
 {{/each}}
-</div>
-</div>
