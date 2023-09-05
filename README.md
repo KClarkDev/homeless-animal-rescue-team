@@ -48,6 +48,21 @@ Volunteer enthusiasts will have the opportunity to join our team through the ded
 #### Sponsor Page
 We'll introduce a dedicated "Sponsors Page" to honor the generous contributors who keep the Animal Adoption Shelter running. Get to know our sponsors and discover how you can make a positive impact.
 
+## Technologies Used
+
+1. Heroku
+2. Bootstrap
+3. Handlebars
+4. Node.js
+5. Express
+6. MySQL2
+7. Sequelize
+8. Bcrypt
+9. Courier.js
+10. HTML
+11. Javascript
+12. CSS
+
 ## Links
 
 1. Github Repository: https://github.com/KClarkDev/homeless-animal-rescue-team
