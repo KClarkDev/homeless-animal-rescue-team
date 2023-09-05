@@ -14,6 +14,7 @@ router.get("/available_dogs", async (req, res) => {
 
     const dogs = dogData.map((dog) => dog.get({ plain: true }));
 
+    console.log(dogs);
     res.render("available_dogs", {
       dogs,
       logged_in: req.session.logged_in,
