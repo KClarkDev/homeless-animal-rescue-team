@@ -42,7 +42,6 @@ const newFormHandler = async (event) => {
 
 // Populate data into form from db if box is checked
 const populateFormHandler = async (event) => {
-  event.preventDefault();
 
   const response = await fetch(`/api/users/adopt`, {
     method: "GET",
